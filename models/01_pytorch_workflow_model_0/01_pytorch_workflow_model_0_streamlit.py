@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from matplotlib import pyplot as plt
+import os
 
 
 # Create a linear regression model class
@@ -28,7 +29,9 @@ class LinearRegressionModel(
         return self.weight * x + self.bias  # regression formula
 
 
-MODEL_SAVE_PATH = "./01_pytorch_workflow_model_0_streamlit.pt"
+MODEL_SAVE_PATH = os.path.join(
+    os.getcwd(), "models", "01_pytorch_workflow_model_0/01_pytorch_workflow_model_0.pt"
+)
 model = LinearRegressionModel()
 model.load_state_dict(torch.load(MODEL_SAVE_PATH))
 model.eval()
