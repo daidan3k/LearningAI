@@ -28,13 +28,14 @@ class LinearRegressionModel(
         return self.weight * x + self.bias  # regression formula
 
 
-MODEL_SAVE_PATH = "../../models/01_pytorch_workflow_model_0.pt"
+MODEL_SAVE_PATH = (
+    "../../models/01_pytorch_workflow_model_0/01_pytorch_workflow_model_0_streamlit.pt"
+)
 model = LinearRegressionModel()
 model.load_state_dict(torch.load(MODEL_SAVE_PATH))
 model.eval()
 
 st.title("Predicción con modelo lineal")
-
 # Entrada del usuario
 input_val = st.number_input("Introduce un valor de X:", value=0.0)
 
